@@ -16,10 +16,10 @@
   <body>
   <?php  if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <div class="logo pull-left"> Inventory System</div>
+      <div class="logo pull-left">CONTROL DE INVENTARIOS</div>
       <div class="header-content">
       <div class="header-date pull-left">
-        <strong><?php echo date("F j, Y, g:i a");?></strong>
+      <strong><?php echo date("n j, Y, g:i a");?></strong>
       </div>
       <div class="pull-right clearfix">
         <ul class="info-menu list-inline list-unstyled">

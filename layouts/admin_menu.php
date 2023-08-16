@@ -2,13 +2,13 @@
   <li>
     <a href="admin.php">
       <i class="glyphicon glyphicon-home"></i>
-      <span>Tablero</span>
+      <span>Dashboard</span>
     </a>
   </li>
   <li>
     <a href="#" class="submenu-toggle">
       <i class="glyphicon glyphicon-user"></i>
-      <span>Administración de Usuarios</span>
+      <span>Manejo de Usuarios</span>
     </a>
     <ul class="nav submenu">
       <li><a href="group.php">Administrar Grupos</a></li>
