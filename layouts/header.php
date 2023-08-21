@@ -47,19 +47,19 @@ $user = current_user();
                 <li>
                   <a href="profile.php?id=<?php echo (int) $user['id']; ?>">
                     <i class="glyphicon glyphicon-user"></i>
-                    Profile
+                    Perfil
                   </a>
                 </li>
                 <li>
                   <a href="edit_account.php" title="edit account">
                     <i class="glyphicon glyphicon-cog"></i>
-                    Settings
+                    Ajustes
                   </a>
                 </li>
                 <li class="last">
                   <a href="logout.php">
                     <i class="glyphicon glyphicon-off"></i>
-                    Logout
+                    Salir
                   </a>
                 </li>
               </ul>
