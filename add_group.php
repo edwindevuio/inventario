@@ -58,7 +58,7 @@
               <input type="number" class="form-control" name="group-level">
         </div>
         <div class="form-group">
-          <label for="status">Status</label>
+          <label for="status">Estado</label>
             <select class="form-control" name="status">
               <option value="1">Activado</option>
               <option value="0">Desactivado</option>

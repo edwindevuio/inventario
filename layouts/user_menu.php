@@ -8,22 +8,22 @@
   <li>
     <a href="#" class="submenu-toggle">
       <i class="glyphicon glyphicon-th-list"></i>
-       <span>Sales</span>
+       <span>Ventas</span>
       </a>
       <ul class="nav submenu">
-         <li><a href="sales.php">Manage Sales</a> </li>
-         <li><a href="add_sale.php">Add Sale</a> </li>
+         <li><a href="sales.php">Manejo de Ventas</a> </li>
+         <li><a href="add_sale.php">Añadir Venta</a> </li>
      </ul>
   </li>
   <li>
     <a href="#" class="submenu-toggle">
       <i class="glyphicon glyphicon-signal"></i>
-       <span>Sales Report</span>
+       <span>Reporte de Ventas</span>
       </a>
       <ul class="nav submenu">
-        <li><a href="sales_report.php">Sales by dates </a></li>
-        <li><a href="monthly_sales.php">Monthly sales</a></li>
-        <li><a href="daily_sales.php">Daily sales</a> </li>
+        <li><a href="sales_report.php">Ventas por fecha</a></li>
+        <li><a href="monthly_sales.php">Ventas mensuales</a></li>
+        <li><a href="daily_sales.php">Ventas diarias</a> </li>
       </ul>
   </li>
 </ul>
