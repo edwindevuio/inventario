@@ -74,6 +74,11 @@ $results = '';
        font-weight: 500;
      }
    </style>
+   <script>
+   window.onload = function() {
+       window.print();
+   }
+   </script>
 </head>
 <body>
   <?php if($results): ?>
