@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Add Sale';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // Esta pagina requiere nivel 3 , no me debo olvidar 
    page_require_level(3);
 ?>
 <?php
@@ -45,9 +45,9 @@
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary">Find It</button>
+              <button type="submit" class="btn btn-primary">Buscar</button>
             </span>
-            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product name">
+            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Buscar por nombre de producto">
          </div>
          <div id="result" class="list-group"></div>
         </div>
@@ -61,19 +61,19 @@
       <div class="panel-heading clearfix">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Sale Eidt</span>
+          <span>Ventas</span>
        </strong>
       </div>
       <div class="panel-body">
         <form method="post" action="add_sale.php">
          <table class="table table-bordered">
            <thead>
-            <th> Item </th>
-            <th> Price </th>
-            <th> Qty </th>
+            <th> Articulo </th>
+            <th> Precio </th>
+            <th> Cantidad </th>
             <th> Total </th>
-            <th> Date</th>
-            <th> Action</th>
+            <th> Fecha</th>
+            <th> Accion</th>
            </thead>
              <tbody  id="product_info"> </tbody>
          </table>

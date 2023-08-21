@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Add User';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // requiere nivel 1 
   page_require_level(1);
   $groups = find_all('user_groups');
 ?>
@@ -44,26 +44,26 @@
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Add New User</span>
+          <span>Agregar nuevo usuario</span>
        </strong>
       </div>
       <div class="panel-body">
         <div class="col-md-6">
           <form method="post" action="add_user.php">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="full-name" placeholder="Full Name">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" name="full-name" placeholder="Nombre y Apellido">
             </div>
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" name="username" placeholder="Username">
+                <label for="username">Usuario</label>
+                <input type="text" class="form-control" name="username" placeholder="Nombre de usuario">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name ="password"  placeholder="Password">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" name ="password"  placeholder="Contraseña">
             </div>
             <div class="form-group">
-              <label for="level">User Role</label>
+              <label for="level">Rol de Usuario</label>
                 <select class="form-control" name="level">
                   <?php foreach ($groups as $group ):?>
                    <option value="<?php echo $group['group_level'];?>"><?php echo ucwords($group['group_name']);?></option>
@@ -71,7 +71,7 @@
                 </select>
             </div>
             <div class="form-group clearfix">
-              <button type="submit" name="add_user" class="btn btn-primary">Add User</button>
+              <button type="submit" name="add_user" class="btn btn-primary">AGREGAR USUARIO</button>
             </div>
         </form>
         </div>
