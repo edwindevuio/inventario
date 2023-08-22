@@ -109,7 +109,7 @@
                        <i class="glyphicon glyphicon-usd"></i>
                      </span>
                      <input type="number" class="form-control" name="buying-price" placeholder="Precio Compra">
-                     <span class="input-group-addon">.00</span>
+                     
                   </div>
                  </div>
                   <div class="col-md-4">
@@ -118,7 +118,7 @@
                         <i class="glyphicon glyphicon-usd"></i>
                       </span>
                       <input type="number" class="form-control" name="saleing-price" placeholder="PVP">
-                      <span class="input-group-addon">.00</span>
+                      
                    </div>
                   </div>
                </div>

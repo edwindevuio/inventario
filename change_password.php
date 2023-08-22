@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Change Password';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // requiere nivel 3 
   page_require_level(3);
 ?>
 <?php $user = current_user(); ?>
@@ -24,10 +24,10 @@
             $result = $db->query($sql);
                 if($result && $db->affected_rows() === 1):
                   $session->logout();
-                  $session->msg('s',"Login with your new password.");
+                  $session->msg('s',"Ingrese con su nueva contraseña");
                   redirect('index.php', false);
                 else:
-                  $session->msg('d',' Sorry failed to updated!');
+                  $session->msg('d',' No se realizo el cambio');
                   redirect('change_password.php', false);
                 endif;
     } else {
@@ -39,17 +39,17 @@
 <?php include_once('layouts/header.php'); ?>
 <div class="login-page">
     <div class="text-center">
-       <h3>Change your password</h3>
+       <h3>Cambie su contraseña</h3>
      </div>
      <?php echo display_msg($msg); ?>
       <form method="post" action="change_password.php" class="clearfix">
         <div class="form-group">
-              <label for="newPassword" class="control-label">New password</label>
-              <input type="password" class="form-control" name="new-password" placeholder="New password">
+              <label for="newPassword" class="control-label">Contraseña nueva</label>
+              <input type="password" class="form-control" name="new-password" placeholder="Nueva">
         </div>
         <div class="form-group">
-              <label for="oldPassword" class="control-label">Old password</label>
-              <input type="password" class="form-control" name="old-password" placeholder="Old password">
+              <label for="oldPassword" class="control-label">Contraseña antigua</label>
+              <input type="password" class="form-control" name="old-password" placeholder="Antigua">
         </div>
         <div class="form-group clearfix">
                <input type="hidden" name="id" value="<?php echo (int)$user['id'];?>">

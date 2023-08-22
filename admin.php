@@ -1,7 +1,7 @@
 <?php
 $page_title = 'Admin Home Page';
 require_once('includes/load.php');
-// Checkin What level user has permission to view this page
+// Revisar los permisos que necesita cada pagina, aqui nivel 1 
 page_require_level(1);
 ?>
 <?php
@@ -93,16 +93,16 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Highest Selling Products</span>
+          <span>Productos mas vendidos</span>
         </strong>
       </div>
       <div class="panel-body">
         <table class="table table-striped table-bordered table-condensed">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Total Sold</th>
-              <th>Total Quantity</th>
+              <th>Nombre</th>
+              <th>Venta Total</th>
+              <th>Cantidad Total</th>
             <tr>
           </thead>
           <tbody>
@@ -129,7 +129,7 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>LATEST SALES</span>
+          <span>Ultimas Ventas</span>
         </strong>
       </div>
       <div class="panel-body">
@@ -137,9 +137,9 @@ $recent_sales = find_recent_sale_added('5')
           <thead>
             <tr>
               <th class="text-center" style="width: 50px;">#</th>
-              <th>Product Name</th>
-              <th>Date</th>
-              <th>Total Sale</th>
+              <th>Nombre del producto</th>
+              <th>Fecha</th>
+              <th>Ventas totales</th>
             </tr>
           </thead>
           <tbody>
@@ -172,7 +172,7 @@ $recent_sales = find_recent_sale_added('5')
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Recently Added Products</span>
+          <span>Productos agregados recientemente</span>
         </strong>
       </div>
       <div class="panel-body">

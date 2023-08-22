@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Daily Sales';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  //requiere permisos nivel 3 
    page_require_level(3);
 ?>
 
@@ -22,7 +22,7 @@
         <div class="panel-heading clearfix">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Daily Sales</span>
+            <span>Ventas Diarias</span>
           </strong>
         </div>
         <div class="panel-body">
@@ -30,10 +30,10 @@
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
-                <th> Product name </th>
-                <th class="text-center" style="width: 15%;"> Quantity sold</th>
+                <th> Nombre del Producto </th>
+                <th class="text-center" style="width: 15%;"> Cantidad Vendida</th>
                 <th class="text-center" style="width: 15%;"> Total </th>
-                <th class="text-center" style="width: 15%;"> Date </th>
+                <th class="text-center" style="width: 15%;"> Fecha </th>
              </tr>
             </thead>
            <tbody>
