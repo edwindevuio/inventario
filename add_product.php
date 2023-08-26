@@ -45,6 +45,7 @@
 
 ?>
 <?php include_once('layouts/header.php'); ?>
+<!--Aqui agregar el swit-->
 <div class="row">
   <div class="col-md-12">
     <?php echo display_msg($msg); ?>
@@ -108,7 +109,8 @@
                      <span class="input-group-addon">
                        <i class="glyphicon glyphicon-usd"></i>
                      </span>
-                     <input type="number" class="form-control" name="buying-price" placeholder="Precio Compra">
+                     <input type="number" class="form-control" name="buying-price" placeholder="Precio Compra" step="0.01">
+
                      
                   </div>
                  </div>
@@ -117,7 +119,7 @@
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-usd"></i>
                       </span>
-                      <input type="number" class="form-control" name="saleing-price" placeholder="PVP">
+                      <input type="number" class="form-control" name="saleing-price" placeholder="PVP" step="0.01">
                       
                    </div>
                   </div>
