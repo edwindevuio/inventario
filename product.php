@@ -1,7 +1,7 @@
 <?php
   $page_title = 'All Product';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // nivel 2
    page_require_level(2);
   $products = join_product_table();
 ?>
@@ -14,7 +14,7 @@
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
          <div class="pull-right">
-           <a href="add_product.php" class="btn btn-primary">Add New</a>
+           <a href="add_product.php" class="btn btn-primary">Agregar Nuevo</a>
          </div>
         </div>
         <div class="panel-body">
@@ -22,14 +22,14 @@
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
-                <th> Photo</th>
-                <th> Product Title </th>
-                <th class="text-center" style="width: 10%;"> Categories </th>
-                <th class="text-center" style="width: 10%;"> In-Stock </th>
-                <th class="text-center" style="width: 10%;"> Buying Price </th>
-                <th class="text-center" style="width: 10%;"> Selling Price </th>
-                <th class="text-center" style="width: 10%;"> Product Added </th>
-                <th class="text-center" style="width: 100px;"> Actions </th>
+                <th> Foto</th>
+                <th> Nombre del Producto </th>
+                <th class="text-center" style="width: 10%;"> Categorias </th>
+                <th class="text-center" style="width: 10%;"> En Stock </th>
+                <th class="text-center" style="width: 10%;"> Precio Compra </th>
+                <th class="text-center" style="width: 10%;"> P.V.P. </th>
+                <th class="text-center" style="width: 10%;"> Producto añadido </th>
+                <th class="text-center" style="width: 100px;"> Acciones </th>
               </tr>
             </thead>
             <tbody>

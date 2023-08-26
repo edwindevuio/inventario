@@ -56,21 +56,21 @@ if(!$sale){
     <div class="panel-heading clearfix">
       <strong>
         <span class="glyphicon glyphicon-th"></span>
-        <span>All Sales</span>
+        <span>Ventas</span>
      </strong>
      <div class="pull-right">
-       <a href="sales.php" class="btn btn-primary">Show all sales</a>
+       <a href="sales.php" class="btn btn-primary">Ventas Totales</a>
      </div>
     </div>
     <div class="panel-body">
        <table class="table table-bordered">
          <thead>
-          <th> Product title </th>
-          <th> Qty </th>
-          <th> Price </th>
+          <th> Producto </th>
+          <th> Cant. </th>
+          <th> Precio </th>
           <th> Total </th>
-          <th> Date</th>
-          <th> Action</th>
+          <th> Fecha</th>
+          <th> Accion</th>
          </thead>
            <tbody  id="product_info">
               <tr>
@@ -92,7 +92,7 @@ if(!$sale){
                   <input type="date" class="form-control datepicker" name="date" data-date-format="" value="<?php echo remove_junk($sale['date']); ?>">
                 </td>
                 <td>
-                  <button type="submit" name="update_sale" class="btn btn-primary">Update sale</button>
+                  <button type="submit" name="update_sale" class="btn btn-primary">Actualizar venta</button>
                 </td>
               </form>
               </tr>

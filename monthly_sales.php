@@ -1,7 +1,7 @@
 <?php
   $page_title = 'Monthly Sales';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // nivel 3
    page_require_level(3);
 ?>
 <?php
@@ -20,7 +20,7 @@
         <div class="panel-heading clearfix">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Monthly Sales</span>
+            <span>Ventas Mensuales</span>
           </strong>
         </div>
         <div class="panel-body">
@@ -28,10 +28,10 @@
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
-                <th> Product name </th>
-                <th class="text-center" style="width: 15%;"> Quantity sold</th>
+                <th> Producto </th>
+                <th class="text-center" style="width: 15%;"> P.V.P </th>
                 <th class="text-center" style="width: 15%;"> Total </th>
-                <th class="text-center" style="width: 15%;"> Date </th>
+                <th class="text-center" style="width: 15%;"> Fecha </th>
              </tr>
             </thead>
            <tbody>
