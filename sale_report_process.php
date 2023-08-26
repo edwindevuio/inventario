@@ -2,7 +2,7 @@
 $page_title = 'Sales Report';
 $results = '';
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // nivel 3
    page_require_level(3);
 ?>
 <?php
@@ -84,17 +84,17 @@ $results = '';
   <?php if($results): ?>
     <div class="page-break">
        <div class="sale-head">
-           <h1>Inventory Management System - Sales Report</h1>
-           <strong><?php if(isset($start_date)){ echo $start_date;}?> TILL DATE <?php if(isset($end_date)){echo $end_date;}?> </strong>
+           <h1>Sistema Control de Inventarios - Reporte de Ventas</h1>
+           <strong><?php if(isset($start_date)){ echo $start_date;}?> HASTA LA FECHA <?php if(isset($end_date)){echo $end_date;}?> </strong>
        </div>
       <table class="table table-border">
         <thead>
           <tr>
-              <th>Date</th>
-              <th>Product Title</th>
-              <th>Buying Price</th>
-              <th>Selling Price</th>
-              <th>Total Qty</th>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Precio de venta</th>
+              <th>P.V.P.</th>
+              <th>Cantidad</th>
               <th>TOTAL</th>
           </tr>
         </thead>
@@ -115,14 +115,14 @@ $results = '';
         <tfoot>
          <tr class="text-right">
            <td colspan="4"></td>
-           <td colspan="1">Grand Total</td>
+           <td colspan="1">Gran Total</td>
            <td> $
            <?php echo number_format(total_price($results)[0], 2);?>
           </td>
          </tr>
          <tr class="text-right">
            <td colspan="4"></td>
-           <td colspan="1">Profit</td>
+           <td colspan="1">Ganancia</td>
            <td> $<?php echo number_format(total_price($results)[1], 2);?></td>
          </tr>
         </tfoot>
