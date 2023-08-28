@@ -3,6 +3,7 @@ $page_title = 'Admin Home Page';
 require_once('includes/load.php');
 // Revisar los permisos que necesita cada pagina, aqui nivel 1 
 page_require_level(1);
+
 ?>
 <?php
 $c_categorie = count_by_id('categories');
@@ -11,8 +12,9 @@ $c_sale = count_by_id('sales');
 $c_user = count_by_id('users');
 $products_sold = find_higest_saleing_product('10');
 $recent_products = find_recent_product_added('5');
-$recent_sales = find_recent_sale_added('5')
-  ?>
+$recent_sales = find_recent_sale_added('5');
+
+?>
 <?php include_once('layouts/header.php'); ?>
 
 <div class="row">
@@ -88,7 +90,8 @@ $recent_sales = find_recent_sale_added('5')
 
 
 <div class="row">
-  <div class="col-md-4">
+
+  <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
@@ -124,7 +127,8 @@ $recent_sales = find_recent_sale_added('5')
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+
+  <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
@@ -167,7 +171,8 @@ $recent_sales = find_recent_sale_added('5')
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+
+  <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
@@ -184,7 +189,8 @@ $recent_sales = find_recent_sale_added('5')
                 <?php if ($recent_product['media_id'] === '0'): ?>
                   <img class="img-avatar img-circle" src="uploads/products/no_image.png" alt="">
                 <?php else: ?>
-                  <img class="img-avatar img-circle" src="uploads/products/<?php echo $recent_product['image']; ?>" alt="" />
+                  <img class="img-avatar img-circle" src="uploads/products/<?php echo $recent_product['image']; ?>"
+                    alt="" />
                 <?php endif; ?>
                 <?php echo remove_junk(first_character($recent_product['name'])); ?>
                 <span class="label label-warning pull-right">
@@ -201,7 +207,80 @@ $recent_sales = find_recent_sale_added('5')
       </div>
     </div>
   </div>
+
+  <?php
+  function get_stock_color_class($quantity)
+  {
+    if ($quantity < 3) {
+      return 'text-red'; // Clase CSS para color rojo
+    } elseif ($quantity < 8) {
+      return 'text-yellow'; // Clase CSS para color amarillo
+    } else {
+      return 'text-green'; // Clase CSS para color verde
+    }
+  }
+  ?>
+  <style>
+    .text-red {
+      background-color: red;
+      /* Puedes ajustar el color según tus preferencias */
+      color: white;
+      /* Puedes ajustar el color del texto según tus preferencias */
+    }
+
+    .text-yellow {
+      background-color: yellow;
+      /* Puedes ajustar el color según tus preferencias */
+    }
+
+    .text-green {
+      background-color: green;
+      /* Puedes ajustar el color según tus preferencias */
+      color: white;
+      /* Puedes ajustar el color del texto según tus preferencias */
+    }
+  </style>
+
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>
+          <span class="glyphicon glyphicon-th"></span>
+          <span>Lista de Productos</span>
+        </strong>
+      </div>
+      <div class="panel-body">
+        <table class="table table-bordered table-striped table-condensed">
+          <thead>
+            <tr>
+
+              <th>Nombre</th>
+              <th>Cantidad</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $products = join_product_table();
+            foreach ($products as $product):
+              ?>
+              <tr>
+
+                <td>
+                  <?php echo remove_junk($product['name']); ?>
+                </td>
+                <td class="<?php echo get_stock_color_class($product['quantity']); ?>"><?php echo (int) $product['quantity']; ?></td>
+
+
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div class="row">
 
 </div>
