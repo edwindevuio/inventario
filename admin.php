@@ -177,7 +177,7 @@ $recent_sales = find_recent_sale_added('5');
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Productos agregados recientemente</span>
+          <span>Agregados recientemente</span>
         </strong>
       </div>
       <div class="panel-body">
