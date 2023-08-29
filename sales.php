@@ -5,7 +5,19 @@
    page_require_level(3);
 ?>
 <?php
-$sales = find_all_sale();
+// Comprobar el nivel del usuario y cargar las ventas correspondientes
+$current_user = current_user();
+
+if ($current_user['user_level'] === '1') { // Cambiar 1 al nivel correcto para administradores
+  $sales = find_all_sale(); // Cambiar a la función correcta para obtener todas las ventas
+} elseif ($current_user['user_level'] === '3') { // Cambiar 3 al nivel correcto para usuarios con acceso a ventas
+  $user_name = current_user()['name']; // Obtener el nombre de usuario actual
+  $sales = find_sales_by_user_name($user_name); // Utilizar la función para obtener las ventas por nombre de usuario
+} else {
+  // Manejar el caso en que el nivel del usuario no es ni 1 ni 3, por ejemplo, redirigir a una página de acceso denegado
+}
+
+
 ?>
 <?php include_once('layouts/header.php'); ?>
 <div class="row">
@@ -31,6 +43,7 @@ $sales = find_all_sale();
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Product name </th>
+                <th class="text-center" style="width: 15%;"> Vendedor</th>
                 <th class="text-center" style="width: 15%;"> Cantidad</th>
                 <th class="text-center" style="width: 15%;"> Total </th>
                 <th class="text-center" style="width: 15%;"> Fecha </th>
@@ -41,7 +54,8 @@ $sales = find_all_sale();
              <?php foreach ($sales as $sale):?>
              <tr>
                <td class="text-center"><?php echo count_id();?></td>
-               <td><?php echo remove_junk($sale['name']); ?></td>
+               <td><?php echo remove_junk($sale['product_name']); ?></td>
+               <td><?php echo remove_junk($sale['user_name']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
                <td class="text-center"><?php echo $sale['date']; ?></td>

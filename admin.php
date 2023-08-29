@@ -109,7 +109,13 @@ $recent_sales = find_recent_sale_added('5');
             <tr>
           </thead>
           <tbody>
-            <?php foreach ($products_sold as $product_sold): ?>
+            <?php
+            $counter = 0;
+            foreach ($products_sold as $product_sold):
+              $counter++;
+              if ($counter > 5)
+                break; // Limitar a 5 elementos
+              ?>
               <tr>
                 <td>
                   <?php echo remove_junk(first_character($product_sold['name'])); ?>
@@ -122,7 +128,8 @@ $recent_sales = find_recent_sale_added('5');
                 </td>
               </tr>
             <?php endforeach; ?>
-          <tbody>
+          </tbody>
+
         </table>
       </div>
     </div>
@@ -147,7 +154,12 @@ $recent_sales = find_recent_sale_added('5');
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($recent_sales as $recent_sale): ?>
+            <?php
+            $counter = 0; foreach ($recent_sales as $recent_sale):
+              $counter++;
+              if ($counter > 5)
+                break; // Limitar a 5 elementos
+              ?>
               <tr>
                 <td class="text-center">
                   <?php echo count_id(); ?>
@@ -164,9 +176,9 @@ $recent_sales = find_recent_sale_added('5');
                   <?php echo remove_junk(first_character($recent_sale['price'])); ?>
                 </td>
               </tr>
-
             <?php endforeach; ?>
           </tbody>
+
         </table>
       </div>
     </div>
@@ -183,7 +195,12 @@ $recent_sales = find_recent_sale_added('5');
       <div class="panel-body">
 
         <div class="list-group">
-          <?php foreach ($recent_products as $recent_product): ?>
+          <?php
+          $counter = 0; foreach ($recent_products as $recent_product):
+            $counter++;
+            if ($counter > 5)
+              break; // Limitar a 5 elementos
+            ?>
             <a class="list-group-item clearfix" href="edit_product.php?id=<?php echo (int) $recent_product['id']; ?>">
               <h4 class="list-group-item-heading">
                 <?php if ($recent_product['media_id'] === '0'): ?>
@@ -204,6 +221,7 @@ $recent_sales = find_recent_sale_added('5');
             </a>
           <?php endforeach; ?>
         </div>
+
       </div>
     </div>
   </div>
@@ -253,37 +271,97 @@ $recent_sales = find_recent_sale_added('5');
         <table class="table table-bordered table-striped table-condensed">
           <thead>
             <tr>
-
               <th>Nombre</th>
               <th>Cantidad</th>
-
             </tr>
           </thead>
           <tbody>
             <?php
             $products = join_product_table();
-            foreach ($products as $product):
+            $totalProducts = count($products);
+
+            // Obtén los índices de los últimos 5 productos (si hay menos de 5 productos, obtén todos los índices)
+            $lastFiveIndices = array_slice(array_keys($products), max(0, $totalProducts - 5));
+
+            foreach ($lastFiveIndices as $index):
+              $product = $products[$index];
               ?>
               <tr>
-
                 <td>
                   <?php echo remove_junk($product['name']); ?>
                 </td>
                 <td class="<?php echo get_stock_color_class($product['quantity']); ?>"><?php echo (int) $product['quantity']; ?></td>
-
-
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
+
       </div>
     </div>
   </div>
 </div>
 
 <div class="row">
+  <?php
+  // Obtén el año actual y el año anterior
+  $currentYear = date("Y");
+  $lastYear = $currentYear;
 
+  // Consulta para obtener las ventas por mes del último año
+  $sql = "SELECT MONTH(s.date) AS month, SUM(p.sale_price * s.qty) AS total_sales";
+  $sql .= " FROM sales s";
+  $sql .= " LEFT JOIN products p ON s.product_id = p.id";
+  $sql .= " WHERE YEAR(s.date) = '{$lastYear}'";
+  $sql .= " GROUP BY MONTH(s.date)";
+  $monthlySalesData = find_by_sql($sql); // Asumiendo que esta función existe y maneja la consulta
+  
+  $monthlySales = array_fill(1, 12, 0); // Inicializa el array con ceros para todos los meses
+  
+  foreach ($monthlySalesData as $row) {
+    $month = $row['month'];
+    $totalSales = $row['total_sales'];
+    $monthlySales[$month] = $totalSales;
+  }
+  ?>
+  <div style="width: 80%; margin: auto;">
+    <canvas id="gananciasPorMes" width="400" height="200"></canvas>
+  </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Datos de ganancias por mes desde la base de datos
+  var gananciasPorMes = <?php echo json_encode(array_values($monthlySales)); ?>;
+
+  var ctx = document.getElementById("gananciasPorMes").getContext("2d");
+
+  var myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: [
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      ],
+      datasets: [
+        {
+          label: "Ganancias por Mes",
+          data: gananciasPorMes,
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
 
 
 

@@ -285,13 +285,15 @@ function tableExists($table){
  /* Function for find all sales
  /*--------------------------------------------------------------*/
  function find_all_sale(){
-   global $db;
-   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
-   $sql .= " FROM sales s";
-   $sql .= " LEFT JOIN products p ON s.product_id = p.id";
-   $sql .= " ORDER BY s.date DESC";
-   return find_by_sql($sql);
- }
+  global $db;
+  $sql  = "SELECT s.id, s.qty, s.price, s.date, s.user_name, p.name AS product_name";
+  $sql .= " FROM sales s";
+  $sql .= " LEFT JOIN products p ON s.product_id = p.id";
+  $sql .= " ORDER BY s.date DESC";
+  return find_by_sql($sql);
+}
+
+
  /*--------------------------------------------------------------*/
  /* Function for Display Recent sale
  /*--------------------------------------------------------------*/
@@ -306,22 +308,26 @@ function find_recent_sale_added($limit){
 /*--------------------------------------------------------------*/
 /* Function for Generate sales report by two dates
 /*--------------------------------------------------------------*/
-function find_sale_by_dates($start_date,$end_date){
+function find_sale_by_dates($start_date, $end_date, $user_name){
   global $db;
-  $start_date  = date("Y-m-d", strtotime($start_date));
-  $end_date    = date("Y-m-d", strtotime($end_date));
-  $sql  = "SELECT s.date, p.name,p.sale_price,p.buy_price,";
-  $sql .= "COUNT(s.product_id) AS total_records,";
-  $sql .= "SUM(s.qty) AS total_sales,";
-  $sql .= "SUM(p.sale_price * s.qty) AS total_saleing_price,";
-  $sql .= "SUM(p.buy_price * s.qty) AS total_buying_price ";
-  $sql .= "FROM sales s ";
-  $sql .= "LEFT JOIN products p ON s.product_id = p.id";
+  $start_date = date("Y-m-d", strtotime($start_date));
+  $end_date = date("Y-m-d", strtotime($end_date));
+ 
+
+  $sql  = "SELECT s.date, p.name, p.sale_price, p.buy_price,";
+  $sql .= " COUNT(s.product_id) AS total_records,";
+  $sql .= " SUM(s.qty) AS total_sales,";
+  $sql .= " SUM(p.sale_price * s.qty) AS total_saleing_price,";
+  $sql .= " SUM(p.buy_price * s.qty) AS total_buying_price ";
+  $sql .= " FROM sales s ";
+  $sql .= " LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";
-  $sql .= " GROUP BY DATE(s.date),p.name";
+  $sql .= " AND s.user_name = '{$user_name}'"; // Filtrar por el nombre del usuario
+  $sql .= " GROUP BY DATE(s.date), p.name";
   $sql .= " ORDER BY DATE(s.date) DESC";
   return $db->query($sql);
 }
+
 /*--------------------------------------------------------------*/
 /* Function for Generate Daily sales report
 /*--------------------------------------------------------------*/
@@ -350,6 +356,51 @@ function  monthlySales($year){
   $sql .= " GROUP BY DATE_FORMAT( s.date,  '%c' ),s.product_id";
   $sql .= " ORDER BY date_format(s.date, '%c' ) ASC";
   return find_by_sql($sql);
+}
+
+function find_sale_by_dates_and_user($start_date, $end_date) {
+  global $db;
+  $start_date = date("Y-m-d", strtotime($start_date));
+  $end_date = date("Y-m-d", strtotime($end_date));
+  $user_id = current_user()['id']; // Obtener el ID del usuario actual
+  $sql = "SELECT s.date, p.name, p.buy_price, p.sale_price,";
+  $sql .= " COUNT(s.product_id) AS total_sales,";
+  $sql .= " SUM(p.sale_price * s.qty) AS total_saleing_price";
+  $sql .= " FROM sales s";
+  $sql .= " LEFT JOIN products p ON s.product_id = p.id";
+  $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";
+  $sql .= " AND s.user_name = '{$user_id}'"; // Restricción por usuario
+  $sql .= " GROUP BY s.date, p.name";
+  $sql .= " ORDER BY s.date DESC";
+  return $db->query($sql);
+}
+
+
+function find_sales_by_user_name($user_name) {
+  global $db;
+  $sql  = "SELECT s.id, s.qty, s.price, s.date, s.user_name, p.name AS product_name";
+  $sql .= " FROM sales s";
+  $sql .= " LEFT JOIN products p ON s.product_id = p.id";
+  $sql .= " WHERE s.user_name = '" . $user_name . "'"; // Agregar la condición para el nombre de usuario específico
+  $sql .= " ORDER BY s.date DESC";
+  return find_by_sql($sql);
+}
+
+function find_sale_by_dates_all($start_date,$end_date){
+  global $db;
+  $start_date  = date("Y-m-d", strtotime($start_date));
+  $end_date    = date("Y-m-d", strtotime($end_date));
+  $sql  = "SELECT s.date,s.user_name,p.name,p.sale_price,p.buy_price,";
+  $sql .= "COUNT(s.product_id) AS total_records,";
+  $sql .= "SUM(s.qty) AS total_sales,";
+  $sql .= "SUM(p.sale_price * s.qty) AS total_saleing_price,";
+  $sql .= "SUM(p.buy_price * s.qty) AS total_buying_price ";
+  $sql .= "FROM sales s ";
+  $sql .= "LEFT JOIN products p ON s.product_id = p.id";
+  $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";
+  $sql .= " GROUP BY DATE(s.date),p.name";
+  $sql .= " ORDER BY DATE(s.date) DESC";
+  return $db->query($sql);
 }
 
 ?>
