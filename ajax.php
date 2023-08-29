@@ -27,6 +27,7 @@
    }
  ?>
  <?php
+ date_default_timezone_set('America/Guayaquil');
  // find all product
   if(isset($_POST['p_name']) && strlen($_POST['p_name']))
   {
