@@ -41,9 +41,9 @@ if ($current_user['user_level'] === '1') { // Cambiar 1 al nivel correcto para a
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th class="text-center" style="width: 50px;">#</th>
-                <th> Product name </th>
+                <th class="text-center" style="width: 50px;">#</th>                
                 <th class="text-center" style="width: 15%;"> Vendedor</th>
+                <th> Product name </th>
                 <th class="text-center" style="width: 15%;"> Cantidad</th>
                 <th class="text-center" style="width: 15%;"> Total </th>
                 <th class="text-center" style="width: 15%;"> Fecha </th>
@@ -53,9 +53,9 @@ if ($current_user['user_level'] === '1') { // Cambiar 1 al nivel correcto para a
            <tbody>
              <?php foreach ($sales as $sale):?>
              <tr>
-               <td class="text-center"><?php echo count_id();?></td>
-               <td><?php echo remove_junk($sale['product_name']); ?></td>
+               <td class="text-center"><?php echo count_id();?></td>               
                <td><?php echo remove_junk($sale['user_name']); ?></td>
+               <td><?php echo remove_junk($sale['product_name']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
                <td class="text-center"><?php echo $sale['date']; ?></td>
