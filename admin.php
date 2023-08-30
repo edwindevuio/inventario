@@ -264,7 +264,7 @@ $recent_sales = find_recent_sale_added('5');
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Lista de Productos</span>
+          <span>Stock de Productos</span>
         </strong>
       </div>
       <div class="panel-body">
