@@ -11,21 +11,17 @@ if ($session->isUserLoggedIn(true)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu título aquí</title>
-    <link rel="stylesheet" href="ruta/a/tu/hoja/de/estilos.css"> <!-- Enlaza tu hoja de estilos si la tienes -->
+    <title>ControldeInventarios</title>
+    <link rel="stylesheet" href="ruta/a/tu/hoja/de/estilos.css"> 
 </head>
 
-<body style="background-image: url('img/fondo.jpg'); background-size: cover; background-repeat: no-repeat;">
+<body style="background-image: url('img/inventario2.jpg'); ">
  
-        
-   
-    <!-- Tu contenido HTML y PHP aquí -->
-
     <?php include_once('layouts/header.php'); ?>
 
-    <div class="login-page" style="background-color: rgba(255, 255, 255, 0.5);">
+    <div class="login-page" style="background-color: rgba(255, 255, 255,130);display:center;border-radius: 10px;">
         <div class="text-center">
-        <img src="img/logo.jpg" alt="Logo" style="max-width: 100%; height: auto;">
+        <img src="img/LOGO INSTITUTO.png" alt="Logo" style="max-width: 90%; height: 100%;padding-top: 20px;">
             <h1>INGRESO</h1>
             <h4>SISTEMA DE CONTROL DE INVENTARIOS</h4>
         </div>
@@ -39,8 +35,8 @@ if ($session->isUserLoggedIn(true)) {
                 <label for="Password" class="control-label">Contraseña</label>
                 <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-danger" style="border-radius:0%">Login</button>
+            <div class="form-group" style="align-items: center;padding-left:130px">
+                <button type="submit" class="btn btn-danger" style="border-radius:5px;">Login</button>
             </div>
         </form>
     </div>

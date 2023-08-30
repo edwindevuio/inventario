@@ -25,10 +25,10 @@ body{
   border: 1px solid #f2f2f2;
 }.page{
   position: relative;
-  display: block;
+  display: flex;
   top: 50px;
   left: 0;
-  padding: 35px 15px 20px 270px;
+  padding: 1px 15px 20px 270px;
 }
 
 .page-lgn{
