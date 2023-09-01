@@ -15,7 +15,7 @@ if ($session->isUserLoggedIn(true)) {
     <link rel="stylesheet" href="ruta/a/tu/hoja/de/estilos.css"> 
 </head>
 
-<body style="background-image: url('img/inventario2.jpg'); ">
+<body style="background-image: url('img/inventario2.jpg');alignament-items:center; ">
  
     <?php include_once('layouts/header.php'); ?>
 
