@@ -301,7 +301,55 @@ $recent_sales = find_recent_sale_added('5');
   </div>
 </div>
 
-<div class="row">
+<div class="row" style="background-color: rgba(255, 255, 255);">
+  <?php
+  $sales = find_all_sale();
+  $salesByUser = array(); foreach ($sales as $sale) {
+    $user = $sale['user_name'];
+    $price = $sale['price'];
+
+    if (!isset($salesByUser[$user])) {
+      $salesByUser[$user] = 0;
+    }
+
+    $salesByUser[$user] += $price;
+  }
+  ?>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div style="width: 80%; margin: auto;">
+    <canvas id="salesChart"></canvas>
+  </div>
+  <script>
+    var ctx = document.getElementById('salesChart').getContext('2d');
+
+    var users = <?php echo json_encode(array_keys($salesByUser)); ?>;
+    var sales = <?php echo json_encode(array_values($salesByUser)); ?>;
+
+    var salesChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: users,
+        datasets: [{
+          label: 'Ventas por Vendedor',
+          data: sales,
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</div>
+
+<div class="row" style="background-color: rgba(255, 255, 255);">
+
   <?php
   // Obtén el año actual y el año anterior
   $currentYear = date("Y");
@@ -327,6 +375,7 @@ $recent_sales = find_recent_sale_added('5');
     <canvas id="gananciasPorMes" width="400" height="200"></canvas>
   </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
