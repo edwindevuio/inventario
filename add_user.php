@@ -24,11 +24,11 @@
         $query .=")";
         if($db->query($query)){
           //sucess
-          $session->msg('s',"User account has been creted! ");
+          $session->msg('s',"La cuenta ha sido creada.! ");
           redirect('add_user.php', false);
         } else {
           //failed
-          $session->msg('d',' Sorry failed to create account!');
+          $session->msg('d',' No se creo la cuenta!');
           redirect('add_user.php', false);
         }
    } else {

@@ -11,10 +11,10 @@
    validate_fields($req_fields);
 
    if(find_by_groupName($_POST['group-name']) === false ){
-     $session->msg('d','<b>Sorry!</b> Entered Group Name already in database!');
+     $session->msg('d','<b>Sorry!</b> ¡El nombre del grupo ingresado ya está en la base de datos!');
      redirect('add_group.php', false);
    }elseif(find_by_groupLevel($_POST['group-level']) === false) {
-     $session->msg('d','<b>Sorry!</b> Entered Group Level already in database!');
+     $session->msg('d','<b>Sorry!</b> ¡El nombre del grupo ingresado ya está en la base de datos!');
      redirect('add_group.php', false);
    }
    if(empty($errors)){
@@ -29,11 +29,11 @@
         $query .=")";
         if($db->query($query)){
           //sucess
-          $session->msg('s',"Group has been creted! ");
+          $session->msg('s',"Grupo creado! ");
           redirect('add_group.php', false);
         } else {
           //failed
-          $session->msg('d',' Sorry failed to create Group!');
+          $session->msg('d',' Fallo creacion del grupo!');
           redirect('add_group.php', false);
         }
    } else {

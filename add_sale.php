@@ -27,10 +27,10 @@ if (isset($_POST['add_sale'])) {
 
         if ($db->query($sql)) {
             update_product_qty($s_qty, $p_id);
-            $session->msg('s', "Sale added. ");
+            $session->msg('s', "Venta realizada. ");
             redirect('add_sale.php', false);
         } else {
-            $session->msg('d', 'Sorry failed to add!');
+            $session->msg('d', 'Venta fallo!!');
             redirect('add_sale.php', false);
         }
     } else {
