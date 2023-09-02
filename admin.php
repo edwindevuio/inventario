@@ -1,10 +1,10 @@
 <?php
-$page_title = 'Admin Home Page';
-require_once('includes/load.php');
-// Revisar los permisos que necesita cada pagina, aqui nivel 1 
-page_require_level(1);
-
+  $page_title = 'Admin Home Page';
+  require_once('includes/load.php');
+  // Revisar los permisos que necesita cada pagina, aqui nivel 1 
+   page_require_level(1);
 ?>
+
 <?php
 $c_categorie = count_by_id('categories');
 $c_product = count_by_id('products');
