@@ -347,7 +347,7 @@ $recent_sales = find_recent_sale_added('5');
     });
   </script>
 </div>
-
+<!-- 
 <div class="row" style="background-color: rgba(255, 255, 255);">
 
   <?php
@@ -374,7 +374,7 @@ $recent_sales = find_recent_sale_added('5');
   <div style="width: 80%; margin: auto;">
     <canvas id="gananciasPorMes" width="400" height="200"></canvas>
   </div>
-</div>
+</div> -->
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
