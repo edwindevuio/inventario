@@ -24,7 +24,7 @@ $user = current_user();
 <body>
   <?php if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <div class="logo pull-left">CONTROL DE INVENTARIOS</div>
+      <div class="logo pull-left" style="background-color:FF7857">CONTROL DE INVENTARIOS</div>
       <div class="header-content">
         <div class="header-date pull-left">
           <strong>
