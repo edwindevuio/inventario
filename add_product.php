@@ -40,11 +40,9 @@
      $session->msg("d", $errors);
      redirect('add_product.php',false);
    }
-
  }
-
 ?>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once('layouts/header.php'); ?>S
 <!--Aqui agregar el swit-->
 <div class="row">
   <div class="col-md-12">

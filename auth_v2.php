@@ -10,7 +10,7 @@ $password = remove_junk($_POST['password']);
     $user = authenticate_v2($username, $password);
 
         if($user):
-           //create session with id
+           //crear sesion con id
            $session->login($user['id']);
            //Update Sign in time
            updateLastLogIn($user['id']);

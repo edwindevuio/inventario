@@ -104,8 +104,8 @@ $recent_sales = find_recent_sale_added('5');
           <thead>
             <tr>
               <th>Nombre</th>
+              <th>Venta Mensual</th>
               <th>Venta Total</th>
-              <th>Cantidad Total</th>
             <tr>
           </thead>
           <tbody>
@@ -240,7 +240,7 @@ $recent_sales = find_recent_sale_added('5');
   ?>
   <style>
     .text-red {
-      background-color: red;
+      background-color: #FF4000;
       /* Puedes ajustar el color según tus preferencias */
       color: white;
       /* Puedes ajustar el color del texto según tus preferencias */

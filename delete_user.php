@@ -1,6 +1,6 @@
 <?php
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // Permiso nivel 1
    page_require_level(1);
 ?>
 <?php
@@ -9,7 +9,7 @@
       $session->msg("s","Usuario eliminado.");
       redirect('users.php');
   } else {
-      $session->msg("d","User deletion failed Or Missing Prm.");
+      $session->msg("d","Fallo eliminacion");
       redirect('users.php');
   }
 ?>

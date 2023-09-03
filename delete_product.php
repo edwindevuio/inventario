@@ -1,12 +1,12 @@
 <?php
   require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
+  // Permiso nivel 2
   page_require_level(2);
 ?>
 <?php
   $product = find_by_id('products',(int)$_GET['id']);
   if(!$product){
-    $session->msg("d","Missing Product id.");
+    $session->msg("d","Sin id de venta.");
     redirect('product.php');
   }
 ?>
@@ -16,7 +16,7 @@
       $session->msg("s","Producto elminado.");
       redirect('product.php');
   } else {
-      $session->msg("d","Products deletion failed.");
+      $session->msg("d","Fallo eliminacion.");
       redirect('product.php');
   }
 ?>
