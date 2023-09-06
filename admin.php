@@ -247,12 +247,12 @@ $recent_sales = find_recent_sale_added('5');
     }
 
     .text-yellow {
-      background-color: yellow;
+      background-color: #FFFF00;
       /* Puedes ajustar el color según tus preferencias */
     }
 
     .text-green {
-      background-color: green;
+      background-color: #00FF00;
       /* Puedes ajustar el color según tus preferencias */
       color: white;
       /* Puedes ajustar el color del texto según tus preferencias */
@@ -316,7 +316,7 @@ $recent_sales = find_recent_sale_added('5');
   }
   ?>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <div style="width: 80%; margin: auto;">
+  <div style="width: 50%; margin: auto;">
     <canvas id="salesChart"></canvas>
   </div>
   <script>
@@ -332,9 +332,9 @@ $recent_sales = find_recent_sale_added('5');
         datasets: [{
           label: 'Ventas por Vendedor',
           data: sales,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
+          backgroundColor: 'rgba(0,0,225, 0.2)',
+          borderColor: 'rgba(0, 0, 255, 0.5)',
+          borderWidth: 3
         }]
       },
       options: {
