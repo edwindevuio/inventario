@@ -104,8 +104,8 @@ $recent_sales = find_recent_sale_added('5');
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Venta Mensual</th>
-              <th>Venta Total</th>
+              <th>Cantidad Mensual</th>
+              <th>Cantidad Total</th>
             <tr>
           </thead>
           <tbody>
@@ -316,7 +316,7 @@ $recent_sales = find_recent_sale_added('5');
   }
   ?>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <div style="width: 50%; margin: auto;">
+  <div style="width: 80%; margin: auto;">
     <canvas id="salesChart"></canvas>
   </div>
   <script>
