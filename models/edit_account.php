@@ -33,7 +33,7 @@
             $session->msg('s',"Cuenta actualizada");
             redirect('edit_account.php', false);
           } else {
-            $session->msg('d',' Sorry failed to updated!');
+            $session->msg('d',' Fallo la actualizacion!');
             redirect('edit_account.php', false);
           }
     } else {
