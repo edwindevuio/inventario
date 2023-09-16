@@ -165,7 +165,7 @@ $recent_sales = find_recent_sale_added('5');
                   <?php echo count_id(); ?>
                 </td>
                 <td>
-                  <a href="edit_sale.php?id=<?php echo (int) $recent_sale['id']; ?>">
+                  <a href="../models/edit_sale.php?id=<?php echo (int) $recent_sale['id']; ?>">
                     <?php echo remove_junk(first_character($recent_sale['name'])); ?>
                   </a>
                 </td>
@@ -201,7 +201,7 @@ $recent_sales = find_recent_sale_added('5');
             if ($counter > 5)
               break; // Limitar a 5 elementos
             ?>
-            <a class="list-group-item clearfix" href="edit_product.php?id=<?php echo (int) $recent_product['id']; ?>">
+            <a class="list-group-item clearfix" href="../models/edit_product.php?id=<?php echo (int) $recent_product['id']; ?>">
               <h4 class="list-group-item-heading">
                 <?php if ($recent_product['media_id'] === '0'): ?>
                   <img class="img-avatar img-circle" src="../views/uploads/products/no_image.png" alt="">
