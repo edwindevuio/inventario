@@ -1,6 +1,6 @@
 <?php
   require_once('../controllers/load.php');
-  // Checkin What level user has permission to view this page
+  // Permiso nivel 2
   page_require_level(2);
 ?>
 <?php
@@ -10,7 +10,7 @@
       $session->msg("s","Foto eliminada.");
       redirect('../controllers/media.php');
   } else {
-      $session->msg("d","Photo deletion failed Or Missing Prm.");
+      $session->msg("d","No se elimino foto");
       redirect('../controllers/media.php');
   }
 ?>

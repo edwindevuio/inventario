@@ -38,7 +38,7 @@ if(!$product){
                  $session->msg('s',"Producto actualizado ");
                  redirect('product.php', false);
                } else {
-                 $session->msg('d',' Sorry failed to updated!');
+                 $session->msg('d',' Fallo actualizacion!');
                  redirect('edit_product.php?id='.$product['id'], false);
                }
 

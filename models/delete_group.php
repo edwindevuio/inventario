@@ -1,6 +1,6 @@
 <?php
   require_once('../controllers/load.php');
-  // Checkin What level user has permission to view this page
+  // Requiere permisos de nivel 1
    page_require_level(1);
 ?>
 <?php
@@ -9,7 +9,7 @@
       $session->msg("s","Grupo eliminado.");
       redirect('../controllers/group.php');
   } else {
-      $session->msg("d","Group deletion failed Or Missing Prm.");
+      $session->msg("d","No se elimino el grupo");
       redirect('../controllers/group.php');
   }
 ?>

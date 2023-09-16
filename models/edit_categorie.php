@@ -26,7 +26,7 @@ if(isset($_POST['edit_cat'])){
        $session->msg("s", "Categoria actualizada");
        redirect('../controllers/categorie.php',false);
      } else {
-       $session->msg("d", "Sorry! Failed to Update");
+       $session->msg("d", "Fallo actualizacion");
        redirect('categorie.php',false);
      }
   } else {
